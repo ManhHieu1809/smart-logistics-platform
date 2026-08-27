@@ -1,10 +1,9 @@
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './app/router/router';
+
 function App() {
-  return (
-    <div>
-      <h1>Smart Logistics Platform</h1>
-      <p>Frontend foundation is ready.</p>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

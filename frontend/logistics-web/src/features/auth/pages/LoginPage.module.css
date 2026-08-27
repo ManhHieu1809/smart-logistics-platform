@@ -1,0 +1,72 @@
+.page {
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  width: 100%;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+}
+
+.mobileBrand {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  color: #0f172a;
+}
+
+.mobileBrandIcon {
+  font-size: 30px;
+}
+
+.mobileBrandName {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  margin: 0 0 8px;
+  color: #1b1b1d;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  margin: 0;
+  color: #45464d;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .mobileBrand {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .page {
+    max-width: none;
+  }
+
+  .card {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: 28px 20px;
+  }
+}

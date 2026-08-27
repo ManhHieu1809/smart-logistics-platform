@@ -1,0 +1,62 @@
+.form :global(.ant-form-item) {
+  margin-bottom: 20px;
+}
+
+.form :global(.ant-form-item-label) {
+  padding-bottom: 6px;
+}
+
+.form :global(.ant-form-item-label > label) {
+  height: auto;
+  color: #1b1b1d;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.form :global(.ant-input),
+.form :global(.ant-input-affix-wrapper) {
+  font-size: 14px;
+}
+
+.form :global(.ant-input-affix-wrapper-lg),
+.form :global(.ant-input-lg) {
+  min-height: 42px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.forgotPassword {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.submitButton {
+  margin-top: 28px;
+  min-height: 42px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .options {
+    gap: 16px;
+  }
+
+  .forgotPassword {
+    white-space: nowrap;
+  }
+}
