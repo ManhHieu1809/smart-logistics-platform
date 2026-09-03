@@ -48,12 +48,12 @@ export function RoutesMap() {
     if (!mapElement.current) return undefined;
 
     const map = L.map(mapElement.current, {
-      attributionControl: false,
       scrollWheelZoom: false,
       zoomControl: true,
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
       maxZoom: 19,
     }).addTo(map);
 
