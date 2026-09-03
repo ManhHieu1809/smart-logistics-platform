@@ -7,6 +7,9 @@ import {
   Input,
   Typography,
 } from 'antd';
+import { useNavigate } from 'react-router-dom';
+
+import { paths } from '../../../app/router/paths';
 
 import {
   loginSchema,
@@ -18,6 +21,8 @@ import styles from './LoginForm.module.css';
 const { Text, Link } = Typography;
 
 export function LoginForm() {
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -31,7 +36,7 @@ export function LoginForm() {
     },
   });
 
-  const onSubmit = (values: LoginFormValues) => {
+  const onSubmit = () => {
     /*
      * Chưa gọi backend tại bước này.
      *
@@ -48,7 +53,7 @@ export function LoginForm() {
      * API Gateway
      */
 
-    console.log(values);
+    navigate(paths.dashboard);
   };
 
   return (
