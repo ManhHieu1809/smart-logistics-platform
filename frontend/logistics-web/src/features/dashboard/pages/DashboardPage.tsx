@@ -80,9 +80,15 @@ export function DashboardPage() {
           <div className={styles.map}>
             <div className={styles.mapLegend}><b>4</b> Active Routes<br /><b>3</b> Experiencing Delays</div>
             <div className={styles.mapControls}>+<br /><span>−</span></div>
-            <svg aria-label="Map of active delivery routes" className={styles.routes} viewBox="0 0 720 330" role="img">
-              <path d="M76 70 C170 30 225 173 330 105 S530 58 655 170" /><path d="M105 248 C198 190 250 230 335 180 S520 288 655 132" /><path d="M120 90 C204 142 236 106 336 162 S474 74 580 102" /><path d="M68 225 C154 140 286 267 390 225 S525 185 660 244" />
-              {[['76','70'],['330','105'],['655','170'],['105','248'],['335','180'],['655','132'],['120','90'],['580','102'],['68','225'],['390','225']].map(([cx, cy]) => <circle cx={cx} cy={cy} key={`${cx}-${cy}`} r="5" />)}
+            <svg aria-label="Map of active delivery routes" className={styles.routes} preserveAspectRatio="none" viewBox="0 0 720 330" role="img">
+              <polyline className={styles.blueRoute} points="92,68 158,68 212,106 306,106 382,159 462,159 526,99 612,99 668,150" />
+              <polyline className={styles.blueRoute} points="124,250 206,250 284,218 360,218 440,174 514,174 588,226" />
+              <polyline className={styles.greenRoute} points="82,228 168,196 244,196 320,232 400,232 478,207 555,207 632,145" />
+              <polyline className={styles.greenRoute} points="118,252 200,252 278,218 352,218 430,182 510,214 594,214 672,264" />
+              {[
+                ['92', '68'], ['158', '68'], ['306', '106'], ['382', '159'], ['612', '99'], ['668', '150'],
+                ['124', '250'], ['360', '218'], ['514', '174'], ['82', '228'], ['632', '145'],
+              ].map(([cx, cy]) => <circle cx={cx} cy={cy} key={`${cx}-${cy}`} r="5" />)}
             </svg>
             <span className={styles.mapCityOne}>Chicago</span><span className={styles.mapCityTwo}>New York</span><span className={styles.mapCityThree}>Atlanta</span>
           </div>
