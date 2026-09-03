@@ -10,6 +10,8 @@ import {
 import { Button, Progress, Tag } from 'antd';
 import type { ReactNode } from 'react';
 
+import { RoutesMap } from '../components/RoutesMap';
+
 import styles from './DashboardPage.module.css';
 
 type Metric = {
@@ -79,18 +81,7 @@ export function DashboardPage() {
           </div>
           <div className={styles.map}>
             <div className={styles.mapLegend}><b>4</b> Active Routes<br /><b>3</b> Experiencing Delays</div>
-            <div className={styles.mapControls}>+<br /><span>−</span></div>
-            <svg aria-label="Map of active delivery routes" className={styles.routes} preserveAspectRatio="none" viewBox="0 0 720 330" role="img">
-              <polyline className={styles.blueRoute} points="92,68 158,68 212,106 306,106 382,159 462,159 526,99 612,99 668,150" />
-              <polyline className={styles.blueRoute} points="124,250 206,250 284,218 360,218 440,174 514,174 588,226" />
-              <polyline className={styles.greenRoute} points="82,228 168,196 244,196 320,232 400,232 478,207 555,207 632,145" />
-              <polyline className={styles.greenRoute} points="118,252 200,252 278,218 352,218 430,182 510,214 594,214 672,264" />
-              {[
-                ['92', '68'], ['158', '68'], ['306', '106'], ['382', '159'], ['612', '99'], ['668', '150'],
-                ['124', '250'], ['360', '218'], ['514', '174'], ['82', '228'], ['632', '145'],
-              ].map(([cx, cy]) => <circle cx={cx} cy={cy} key={`${cx}-${cy}`} r="5" />)}
-            </svg>
-            <span className={styles.mapCityOne}>Chicago</span><span className={styles.mapCityTwo}>New York</span><span className={styles.mapCityThree}>Atlanta</span>
+            <RoutesMap />
           </div>
         </article>
 
