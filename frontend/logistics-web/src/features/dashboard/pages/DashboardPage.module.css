@@ -148,7 +148,7 @@
 
 .map {
     position: relative;
-    min-height: 295px;
+    min-height: 420px;
     overflow: hidden;
     background: #e8eef4;
 }
@@ -157,7 +157,7 @@
     position: absolute;
     z-index: 500;
     top: 13px;
-    left: 13px;
+    left: 54px;
     border-radius: 5px;
     background: rgba(255, 255, 255, .93);
     padding: 8px;
@@ -341,6 +341,6 @@ td:first-child {
     }
 
     .map {
-        min-height: 240px;
+        min-height: 320px;
     }
 }
