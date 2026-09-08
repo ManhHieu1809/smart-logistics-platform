@@ -1,15 +1,16 @@
-import { Navigate, createHashRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import { LoginPage } from '../../features/auth/pages/LoginPage';
 import { DashboardPage } from '../../features/dashboard/pages/DashboardPage';
+import { LandingPage } from '../../features/landing/pages/LandingPage';
 import { AppLayout } from '../../layouts/AppLayout/AppLayout';
 import { AuthLayout } from '../../layouts/AuthLayout/AuthLayout';
 import { paths } from './paths';
 
 export const router = createHashRouter([
   {
-    path: '/',
-    element: <Navigate to={paths.login} replace />,
+    path: paths.landing,
+    element: <LandingPage />,
   },
 
   {
