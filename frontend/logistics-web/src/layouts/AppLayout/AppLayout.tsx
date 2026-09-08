@@ -3,6 +3,7 @@ import {
   DashboardOutlined,
   DatabaseOutlined,
   GroupOutlined,
+  HomeOutlined,
   InboxOutlined,
   MenuOutlined,
   MoreOutlined,
@@ -29,6 +30,7 @@ type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
+  { label: 'Về Trang Chủ', icon: <HomeOutlined />, path: paths.landing },
   { label: 'Dashboard', icon: <DashboardOutlined />, path: paths.dashboard },
   { label: 'Customers', icon: <GroupOutlined /> },
   { label: 'Products', icon: <InboxOutlined /> },

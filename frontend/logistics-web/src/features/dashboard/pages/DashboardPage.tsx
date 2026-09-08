@@ -27,8 +27,8 @@ type Metric = {
 const metrics: Metric[] = [
   { label: 'Active Orders', value: '1,284', note: '12% vs last week', icon: <ShoppingCartOutlined />, iconClassName: styles.blue },
   { label: 'Deliveries in Progress', value: '86', note: '4% vs yesterday', icon: <TruckOutlined />, iconClassName: styles.indigo },
-  { label: 'Warehouse Capacity', value: '78%', note: 'Approaching max capacity', icon: <EnvironmentOutlined />, iconClassName: styles.orange, progress: 78, progressColor: '#f59e0b' },
-  { label: 'Fleet Availability', value: '92%', note: 'Optimal levels', icon: <TruckOutlined />, iconClassName: styles.green, progress: 92, progressColor: '#10b981' },
+  { label: 'Warehouse Capacity', value: '78%', note: 'Approaching max capacity', icon: <EnvironmentOutlined />, iconClassName: styles.orange, progress: 78, progressColor: '#ea580c' },
+  { label: 'Fleet Availability', value: '92%', note: 'Optimal levels', icon: <TruckOutlined />, iconClassName: styles.green, progress: 92, progressColor: '#059669' },
 ];
 
 const orders = [

@@ -10,7 +10,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { paths } from '../../../app/router/paths';
-
 import {
   loginSchema,
   type LoginFormValues,
@@ -20,39 +19,42 @@ import styles from './LoginForm.module.css';
 
 const { Text, Link } = Typography;
 
+interface DemoAccount {
+  role: string;
+  email: string;
+  badge: string;
+}
+
+const DEMO_ACCOUNTS: DemoAccount[] = [
+  { role: 'Admin', email: 'admin@smartlogistics.io', badge: 'Quản trị' },
+  { role: 'Operator', email: 'operator@smartlogistics.io', badge: 'Điều phối' },
+  { role: 'Warehouse', email: 'warehouse@smartlogistics.io', badge: 'Thủ kho' },
+  { role: 'Driver', email: 'driver@smartlogistics.io', badge: 'Tài xế' },
+];
+
 export function LoginForm() {
   const navigate = useNavigate();
 
   const {
     control,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: '',
-      password: '',
-      rememberMe: false,
+      username: 'operator@smartlogistics.io',
+      password: 'Password@123',
+      rememberMe: true,
     },
   });
 
-  const onSubmit = () => {
-    /*
-     * Chưa gọi backend tại bước này.
-     *
-     * Sau khi API authentication tồn tại:
-     *
-     * Page
-     *   ↓
-     * useLogin()
-     *   ↓
-     * authApi.login()
-     *   ↓
-     * httpClient
-     *   ↓
-     * API Gateway
-     */
+  const handleSelectDemo = (account: DemoAccount) => {
+    setValue('username', account.email, { shouldValidate: true });
+    setValue('password', 'Password@123', { shouldValidate: true });
+  };
 
+  const onSubmit = () => {
     navigate(paths.dashboard);
   };
 
@@ -63,8 +65,26 @@ export function LoginForm() {
       onFinish={handleSubmit(onSubmit)}
       className={styles.form}
     >
+      {/* Demo Credentials Quick Switcher */}
+      <div className={styles.demoBox}>
+        <span className={styles.demoLabel}>Tài khoản mẫu thử nghiệm (1 chạm):</span>
+        <div className={styles.demoChips}>
+          {DEMO_ACCOUNTS.map((acc) => (
+            <button
+              key={acc.role}
+              type="button"
+              className={styles.demoChip}
+              onClick={() => handleSelectDemo(acc)}
+            >
+              <span className={styles.demoRoleName}>{acc.role}</span>
+              <span className={styles.demoBadge}>{acc.badge}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       <Form.Item
-        label="Email or Username"
+        label="Email hoặc Tên đăng nhập"
         validateStatus={errors.username ? 'error' : undefined}
         help={errors.username?.message}
       >
@@ -75,7 +95,7 @@ export function LoginForm() {
             <Input
               {...field}
               size="large"
-              placeholder="Enter your email"
+              placeholder="Nhập email tài khoản"
               autoComplete="username"
             />
           )}
@@ -83,7 +103,7 @@ export function LoginForm() {
       </Form.Item>
 
       <Form.Item
-        label="Password"
+        label="Mật khẩu"
         validateStatus={errors.password ? 'error' : undefined}
         help={errors.password?.message}
       >
@@ -94,7 +114,7 @@ export function LoginForm() {
             <Input.Password
               {...field}
               size="large"
-              placeholder="Enter your password"
+              placeholder="Nhập mật khẩu truy cập"
               autoComplete="current-password"
             />
           )}
@@ -112,7 +132,7 @@ export function LoginForm() {
                 field.onChange(event.target.checked)
               }
             >
-              Remember me
+              Ghi nhớ phiên đăng nhập
             </Checkbox>
           )}
         />
@@ -121,7 +141,7 @@ export function LoginForm() {
           href="#"
           className={styles.forgotPassword}
         >
-          Forgot password?
+          Quên mật khẩu?
         </Link>
       </div>
 
@@ -133,14 +153,14 @@ export function LoginForm() {
         loading={isSubmitting}
         className={styles.submitButton}
       >
-        Sign in
+        Đăng Nhập Vào Hệ Thống
       </Button>
 
       <div className={styles.footer}>
         <Text type="secondary">
-          Need help?{' '}
+          Cần hỗ trợ phân quyền?{' '}
           <Link href="#">
-            Contact your system administrator.
+            Liên hệ quản trị viên (Admin)
           </Link>
         </Text>
       </div>
