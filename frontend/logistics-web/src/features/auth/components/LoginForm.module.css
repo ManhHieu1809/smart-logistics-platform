@@ -1,62 +1,3 @@
-.demoBox {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 20px;
-}
-
-.demoLabel {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  color: #1e40af;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.demoChips {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-}
-
-.demoChip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 150ms ease;
-  text-align: left;
-}
-
-.demoChip:hover {
-  border-color: #2563eb;
-  background: #f0f7ff;
-  transform: translateY(-1px);
-}
-
-.demoRoleName {
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.demoBadge {
-  font-size: 10px;
-  background: #e2e8f0;
-  color: #475569;
-  padding: 1px 5px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
 .form :global(.ant-form-item) {
   margin-bottom: 20px;
 }
@@ -67,9 +8,9 @@
 
 .form :global(.ant-form-item-label > label) {
   height: auto;
-  color: #1b1b1d;
+  color: #0f172a;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 18px;
 }
 
@@ -80,7 +21,8 @@
 
 .form :global(.ant-input-affix-wrapper-lg),
 .form :global(.ant-input-lg) {
-  min-height: 42px;
+  min-height: 44px;
+  border-radius: 8px;
 }
 
 .options {
@@ -92,14 +34,16 @@
 
 .forgotPassword {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #2563eb !important;
 }
 
 .submitButton {
   margin-top: 28px;
-  min-height: 42px;
-  font-size: 13px;
-  font-weight: 600;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
 .footer {

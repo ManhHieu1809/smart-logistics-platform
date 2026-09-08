@@ -3,7 +3,6 @@ import {
   DashboardOutlined,
   DatabaseOutlined,
   GroupOutlined,
-  HomeOutlined,
   InboxOutlined,
   MenuOutlined,
   MoreOutlined,
@@ -30,13 +29,12 @@ type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Về Trang Chủ', icon: <HomeOutlined />, path: paths.landing },
   { label: 'Dashboard', icon: <DashboardOutlined />, path: paths.dashboard },
   { label: 'Customers', icon: <GroupOutlined /> },
   { label: 'Products', icon: <InboxOutlined /> },
   { label: 'Warehouses', icon: <ShopOutlined /> },
   { label: 'Inventory', icon: <DatabaseOutlined /> },
-  { label: 'Orders', icon: <MenuOutlined /> },
+  { label: 'Orders', icon: <MenuOutlined />, path: paths.orders.root },
   { label: 'Deliveries', icon: <TruckOutlined /> },
   { label: 'Drivers', icon: <UserOutlined /> },
   { label: 'Notifications', icon: <NotificationOutlined /> },
@@ -45,6 +43,14 @@ const navigationItems: NavigationItem[] = [
 
 export function AppLayout() {
   const location = useLocation();
+
+  const getPageTitle = () => {
+    if (location.pathname === paths.orders.create) return 'Tạo Đơn Hàng Mới';
+    if (location.pathname.startsWith('/orders/')) return 'Chi Tiết Đơn Hàng';
+    if (location.pathname === paths.orders.root) return 'Quản Lý Đơn Hàng';
+    if (location.pathname === paths.dashboard) return 'Dashboard Overview';
+    return 'Smart Logistics Operations';
+  };
 
   return (
     <div className={styles.shell}>
@@ -95,7 +101,7 @@ export function AppLayout() {
 
       <div className={styles.contentArea}>
         <header className={styles.header}>
-          <h1>Dashboard Overview</h1>
+          <h1>{getPageTitle()}</h1>
           <div className={styles.headerActions}>
             <Input
               className={styles.search}
